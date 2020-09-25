@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    bus:
+      enabled: false
+    stream:
+      dynamicDestinations:
+      kafka:
+        binder:
+          autoCreateTopics: true
+      bindings:
+         output:
+            destination: Shubham
+
