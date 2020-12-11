@@ -1,0 +1,25 @@
+Start zookeeper
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+start kafka
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+create topic
+.\bin\windows\kafka-topics.bat --create --topic Shubham --bootstrap-server localhost:9092
+
+describe topic details
+.\bin\windows\kafka-topics.bat --describe --topic Shubham --bootstrap-server localhost:9092
+
+
+connect producer
+.\bin\windows\kafka-console-producer.bat --topic Shubham --bootstrap-server localhost:9092
+
+
+get groups list
+.\bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
+
+group information 
+.\bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group group1
+
+add partition
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --alter --topic Shubham --partitions 3

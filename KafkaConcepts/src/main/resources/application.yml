@@ -1,0 +1,29 @@
+server:
+  port: 8082
+
+spring:
+  cloud:
+    stream:
+      bindings:
+        Shubham:
+          group: mygroup
+          destination: Shubham
+          consumer:
+            concurrency: 3
+      kafka:
+        binder:
+          brokers:
+            - localhost:9092
+          consumer-properties:
+            auto.offset.reset: latest
+        bindings:
+          Shubham:
+            consumer:
+              autoCommitOffset: true
+              configuration:
+                max.poll.records: 20
+
+
+logging:
+  level:
+    org.springframework.kafka = DEBUG

@@ -1,0 +1,12 @@
+spring:
+  cloud:
+    bus:
+      enabled: false
+    stream:
+      kafka:
+        binder:
+          autoCreateTopics: true
+      bindings:
+        input:
+          group: mygroup
+

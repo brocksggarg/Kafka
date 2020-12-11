@@ -1,0 +1,14 @@
+Consumer group rebalancing is triggered when partitions need to be reassigned among consumers in the consumer group: A new consumer joins the group; an existing consumer leaves the group; an existing consumer changes subscription; or partitions are added to one of the subscribed topics.
+
+Rebalancing is orchestrated by the group coordinator and it involves communication with all consumers in the group. 
+
+
+Consumer get batch of records from Kafka.
+Case: auto commit
+	once all the records has processed and consumer send request to poll again, then only offset is commited.
+	
+	
+The maximum delay allowed between poll method calls is defined by the max.poll.interval.ms config, which is five minutes by default. If a consumer fails to call the poll method within that interval, it is considered dead, and group rebalancing is triggered. 
+
+spring.cloud.stream.bindings.<channel-name>.consumer.concurrency = 3
+
