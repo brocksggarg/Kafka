@@ -12,3 +12,13 @@ The maximum delay allowed between poll method calls is defined by the max.poll.i
 
 spring.cloud.stream.bindings.<channel-name>.consumer.concurrency = 3
 
+If at kafka, there are 3 partions of a topic
+And in my service, i set concurrency = 3 and partion-count as 6
+Then in that case 3 threads will get 2 partions each, but as in actual there are only 3 partitions so it might happen that out 2 out 3 partitions assigned to single thread.
+
+Flow without any config for error or retry:
+1. poll() method called and it fetched 3 events 
+2. encounter error in 2nd event
+3. service retried error event 3 times, after that thrown an exception and commit the offset upto 1 successful event.
+4. read again remaining 2 events.
+5. this process goes in loop

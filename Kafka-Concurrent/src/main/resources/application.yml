@@ -4,27 +4,18 @@ server:
 spring:
   cloud:
     stream:
+      instance-count: 1
       bindings:
         Shubham:
           group: mygroup
           binder: kafka
-          destination: topic2
+          destination: topic3
           consumer:
-            concurrency: 3
+            maxAttempts: 1
+            concurrency: 1
       kafka:
         binder:
           brokers:
             - localhost:9092
           consumer-properties:
             auto.offset.reset: latest
-        bindings:
-          Shubham:
-            consumer:
-              autoCommitOffset: true
-              configuration:
-                max.poll.records: 20
-
-
-logging:
-  level:
-    org.springframework.kafka = DEBUG
