@@ -14,6 +14,8 @@
 package com.example.KafkaConcurrent.listener;
 
 import org.springframework.cloud.stream.annotation.Input;
+import org.springframework.cloud.stream.annotation.Output;
+import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.SubscribableChannel;
 
 /**
@@ -21,11 +23,16 @@ import org.springframework.messaging.SubscribableChannel;
  */
 public interface Events {
   String STATE_CHANGE_TOPIC = "Shubham";
-  
+  String SHUBHAM_OUT = "shubhamout";
+  //String SHUBHAM_OUT2 = "shubhamout2";
+
   @Input(STATE_CHANGE_TOPIC)
   SubscribableChannel stateChangeTopicChannel();
   
-  //@Output(STATE_CHANGE_TOPIC)
-  //MessageChannel outputChannel();
+  @Output(SHUBHAM_OUT)
+  MessageChannel outputChannel();
+
+  //@Output(SHUBHAM_OUT2)
+  //MessageChannel outputChannel2();
 
 }

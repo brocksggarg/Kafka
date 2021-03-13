@@ -6,6 +6,14 @@ spring:
     stream:
       instance-count: 1
       bindings:
+        shubhamout:
+          group: mygroup
+          destination: topic3
+          binder: kafka
+        #shubhamout2:
+          #group: mygroup
+          #destination: topic3
+          #binder: kafka
         Shubham:
           group: mygroup
           binder: kafka
@@ -14,6 +22,14 @@ spring:
             maxAttempts: 1
             concurrency: 1
       kafka:
+        bindings:
+          shubhamout:
+            producer:
+              sync: true
+              configuration:
+                retries: 3
+                #linger.ms: 10000
+                request.timeout.ms: 1000
         binder:
           brokers:
             - localhost:9092

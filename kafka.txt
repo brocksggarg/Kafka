@@ -22,3 +22,11 @@ Flow without any config for error or retry:
 3. service retried error event 3 times, after that thrown an exception and commit the offset upto 1 successful event.
 4. read again remaining 2 events.
 5. this process goes in loop
+
+For handling any errors while processing we can use:
+	auto-commit-on-error = true -> this will commit the offset if any error occur during processing
+	@Retryable -> this can be used for retry mechanism when any error comes.
+
+starting with version 2.3 autoCommit options are replaced by ack-mode
+
+default ack-mode: BATCH
