@@ -9,19 +9,23 @@ spring:
           group: mygroup
           destination: Shubham
           consumer:
-            concurrency: 3
+            concurrency: 1
       kafka:
         binder:
           brokers:
             - localhost:9092
           consumer-properties:
-            auto.offset.reset: latest
+            auto.offset.reset: earliest
+            # https://docs.confluent.io/platform/current/installation/configuration/consumer-configs.html#fetch-min-bytes
+            fetch.min.bytes: 500
+            # https://docs.confluent.io/platform/current/installation/configuration/consumer-configs.html#fetch-max-wait-ms
+            fetch.max.wait.ms: 30000
+            # https://docs.confluent.io/platform/current/installation/configuration/consumer-configs.html#max-poll-records
+            max.poll.records: 100000
         bindings:
           Shubham:
             consumer:
               autoCommitOffset: true
-              configuration:
-                max.poll.records: 20
 
 
 logging:

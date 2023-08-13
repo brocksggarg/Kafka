@@ -17,12 +17,12 @@ public class Consumer {
     @StreamListener(Events.STATE_CHANGE_TOPIC)
     public void receive(Message<?> message) throws InterruptedException {
         System.out.println("Time: " + Instant.now() + " Message: " + message.getPayload());
-        try {
-            Thread.sleep(10000);
-            //new T1().start();
-        } catch (Exception e) {
-            // TODO: handle exception
-        }
+//        try {
+//            Thread.sleep(10000);
+//            //new T1().start();
+//        } catch (Exception e) {
+//            // TODO: handle exception
+//        }
         /*Acknowledgment acknowledgment = message.getHeaders().get(KafkaHeaders.ACKNOWLEDGMENT, Acknowledgment.class);
         if (acknowledgment != null) {
             System.out.println("Acknowledgment provided");

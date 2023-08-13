@@ -1,0 +1,6 @@
+@PreAuthorize at method level override @PreAuthorize at class level
+OAuth 2.0 is an industry-standard authorization protocol
+and OIDC is another open standard on top of OAuth that adds an identity layer (authentication). 
+ Neither OAuth nor OIDC, however, provide an implementation. They are just specs or protocols. 
+
+That’s where Okta comes in. Okta has an implementation of the OAuth 2.0 and OIDC specs that allows for programs to use their services to quickly provide login, registration, and single sign-on (or social login) services. 

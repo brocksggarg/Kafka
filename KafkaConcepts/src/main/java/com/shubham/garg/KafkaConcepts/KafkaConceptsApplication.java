@@ -21,7 +21,7 @@ public class KafkaConceptsApplication {
 
         ConcurrentKafkaListenerContainerFactory<String, Object> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory);
-        factory.setConcurrency(5);
+        factory.setConcurrency(1);
 
         return factory;
     }

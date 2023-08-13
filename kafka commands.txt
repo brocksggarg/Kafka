@@ -19,7 +19,7 @@ get groups list
 .\bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --list
 
 group information 
-.\bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group group1
+.\bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --describe --group mygroup
 
 add partition
 .\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --alter --topic Shubham --partitions 3
